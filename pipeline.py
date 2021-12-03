@@ -55,7 +55,7 @@ def main():
                             else:
                                 print(json.dumps(mutations))
                                 output.append(mutations)
-                                write_file.write(json.dumps(mutations) + "\n")
+                                #write_file.write(json.dumps(mutations) + "\n")
                                 try:
                                     if ot_dict[offtarget] is None:
                                         print(output_dump)
@@ -71,23 +71,28 @@ def main():
                                         counter += 1
                                     except:
                                         print(mutations)
-    write_file.close()
     #end = time.time()
     #end = float(end)
     #start = float(start)
     #print(end-start)
 
     for jsonData in output:
-        #link = jsonData['phenotype'].split(",")
         print("Phenotype Information")
+        write_file.write("Phenotype Information")
         print("---------------------")
-        print("Clinical Signifcance: ", jsonData["clinSign"])
+        write_file.write("---------------------")
+        print("Clinical Significance: ", jsonData["clinSign"])
+        write_file.write("Clinical Significance: " + str(jsonData["clinSign"]))
         print("Type: ", jsonData["type"])
+        write_file.write("Type: " + str(jsonData["type"]))
         print("Phenotypes: ", jsonData["phenotypeList"])
+        write_file.write("Phenotypes: " + str(jsonData["phenotypeList"]))
         print("Links: ,", jsonData["phenotype"])
+        write_file.write("Links: " + str(jsonData["phenotype"]))
         #print("OMIM link: ", link[2])
-        print("\n")        
-
+        print("\n")       
+        write_file.write("\n") 
+    write_file.close()
 
 if __name__ == '__main__':
     main()
