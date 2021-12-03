@@ -82,7 +82,7 @@ def main():
         print("---------------------")
         write_file.write("---------------------")
         print("Clinical Significance: ", jsonData["clinSign"])
-        write_file.write("Clinical Significance: " + str(jsonData["clinSign"]))
+        write_file.write("Clinical Significance: " + json.dumps(jsonData["clinSign"]))
         print("Type: ", jsonData["type"])
         write_file.write("Type: " + str(jsonData["type"]))
         print("Phenotypes: ", jsonData["phenotypeList"])
